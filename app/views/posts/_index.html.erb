@@ -1,0 +1,11 @@
+<ul class="collection">
+    <li class="collection-item col s12 center"><%= post.text %></li>
+    <% if user_signed_in? && post.user_id == current_user.id %>
+    
+    <li class="col s3 offset-s3 right"><%= link_to '削除', "/posts/#{post.id}", method: :delete,class:"waves-effect waves-light btn-small  indigo lighten-4" %></li>
+    <li class="col s3 offset-s3 right"><%= link_to '編集', "/posts/#{post.id}/edit", method: :get,class:"waves-effect waves-light btn-small  indigo lighten-4" %></li>     
+    
+    <%end%>
+</ul>
+  
+            

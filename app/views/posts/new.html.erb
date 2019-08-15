@@ -1,0 +1,8 @@
+<div class="contents row center" >
+  <%= form_for(@posts) do |f| %>
+    <h5>NEW POST</h5>
+      <%= f.text_field :image %>
+      <%= f.text_area :text %>
+      <%= f.submit %>
+  <% end %>
+</div>

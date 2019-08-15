@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Miniapp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'   %>
+  
+    <style type="text/css" href="./style.css"></style>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+   <header class="header">
+    <nav class="indigo lighten-3">
+      <div class="nav-wrapper">
+        <%= link_to "miniapp",'/posts',class: "brand-logo center" %>
+        <ul class="right hide-on-med-and-down">
+          <%if user_signed_in?%>
+          <li><%= link_to "NEW",'/posts/new',class: 'waves-effect waves-light btn red lighten-3' %></li>
+          <li><%= link_to "ログアウト",destroy_user_session_path, method: :delete ,class: 'waves-effect waves-light btn red lighten-3' %></li>
+      　  <%else%>
+          <li><%= link_to "サインイン",new_user_session_path, method: :get ,class: 'waves-effect waves-light btn red lighten-3' %></li>
+          <li><%= link_to "新規登録",new_user_registration_path, method: :get ,class: 'waves-effect waves-light btn red lighten-3' %></li>
+          <%end%>
+        <ul>
+      </div>
+    </nav>
+   </header>
+    <%= yield %>
+  </body>
+</html>

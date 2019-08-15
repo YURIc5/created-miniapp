@@ -1,0 +1,5 @@
+
+<% @posts.each do |post| %>
+  <%= render partial: "posts/index", locals: { post: post } %>
+<% end %>
+<%= paginate(@posts) %>

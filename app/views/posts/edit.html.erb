@@ -1,0 +1,8 @@
+<div class="contents row center" >
+  <%= form_for (@post) do |f| %>
+    <h5>編集する</h5>
+    <%= f.text_field :image %>
+    <%= f.text_area :text %>
+    <%= f.submit %>
+  <% end %>
+</div>
